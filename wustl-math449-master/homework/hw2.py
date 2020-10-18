@@ -74,17 +74,15 @@ def jacobiIteration(A, b, x0=None, tol=1e-13, numIter=100):
             break
     
     return x[:k+1]
-
 A = getMatrix(n=5, isDiagDom=False)
 A = A/2
 print(A.toarray())
 x_true = np.random.randn(5)
 b = A@x_true
 x = jacobiIteration(A, b)
-
 def plotConvergence(x_true, x, k=2, scale='log', rate=True):
     '''
-    Plot the error ||x[i] - x_true||_k against i or the rate of the convergence
+    Plot the error ||x[i] - x_true||_k against i or the rate of the convergence
     x_true: (n,) vector
     x: (m, n) matrix, x[i] is the i-th iterate, 
     x[0] = x0 is the initial guess
@@ -107,7 +105,7 @@ def plotConvergence(x_true, x, k=2, scale='log', rate=True):
     elif (scale is 'linear') and rate:
         plt.plot(error[1:]/error[:-1])
 
-maxProbSize = 40
+maxProbSize = 20
 numIter = 100
 for i in range(5, maxProbSize+1, 5):
     A = getMatrix(n=i)
